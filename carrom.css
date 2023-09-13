@@ -1,0 +1,110 @@
+*{
+    height:100vh;
+    width:100%;
+    margin:0%
+}
+.triangle{
+    clip-path: polygon(25px 5px,5px 50px,50px 50px);
+    background-color: rgb(59, 55, 47);
+    position:absolute;
+    top:60px;
+    left:425px;
+}
+
+.shadow{
+    clip-path: polygon(200px 15px,14px 520px,520px 520px,300px 15px);
+    background-color: rgba(255, 230, 0, 0.3);
+    position:absolute;
+    top:200px;
+    left:200px;
+}
+.bulb{
+    height:25px;
+    width:25px;
+    border-radius: 50%;
+    background-color: rgb(255, 193, 77);
+    box-shadow: 0 0 20px rgb(250, 253, 81);
+    position:absolute;
+    top:100px;
+    left:440px;
+}
+
+.board{
+    height:500px;
+    width:500px;
+    background-color: rgb(236, 220, 125);
+    border: 15px solid black;
+    position:absolute;
+    top:200px;
+    left:200px;
+}
+.striker{
+    height:25px;
+    width:25px;
+    background-color: red;
+    border-radius: 50%;
+    position:relative;
+    top:420px;
+    left:60px;
+    animation:striker 7.5s  linear;
+    animation-fill-mode: forwards ;
+}
+.coin{
+    height:25px;
+    width:25px;
+    background-color: black;
+    border-radius: 50%;
+    position:relative;
+    top:360px;
+    left:350px;
+    animation:coin 5s  linear;
+    animation-delay: 2.5s;
+    animation-fill-mode: forwards ;
+}
+.net{
+    height:85px;
+    width:55px;
+    background-color: rgba(255, 255, 255, 0.568);
+    border:black solid 2px;
+    border-radius: 40%;
+    transform:rotate(-20deg);
+    position:relative;
+    top:140px;
+    left:170px;
+    background-color: #e5e5f7;
+opacity: 0.8;
+background-image:  linear-gradient(#444cf7 2px, transparent 2px), linear-gradient(90deg, #444cf7 2px, transparent 2px), linear-gradient(#444cf7 1px, transparent 1px), linear-gradient(90deg, #444cf7 1px, #e5e5f7 1px);
+background-size: 50px 50px, 50px 50px, 10px 10px, 10px 10px;
+background-position: -2px -2px, -2px -2px, -1px -1px, -1px -1px;
+}
+@keyframes striker{
+    0%{
+
+    }
+    15%{
+        transform:translateY(-420px) translateX(150px) ;
+    }
+    34%{
+        transform:translateY(-30px) translateX(315px) ;
+    }
+    100%{
+        transform:translateY(-25px) translateX(320px) ;
+    }
+
+}
+@keyframes coin{
+    0%{
+
+    }
+    10%{
+        transform:translateY(90px) translateX(-20px) ;
+    }
+    70%{
+        transform:translateY(-420px) translateX(-370px) ;
+        opacity: 100%;
+    }
+    100%{
+        transform:translateY(-420px) translateX(-370px) ;
+        opacity: 0;
+    }
+}
