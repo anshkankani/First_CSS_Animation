@@ -1,0 +1,22 @@
+emails = LOAD 'path/to/emails_data' USING PigStorage(',') AS (
+    user_id: chararray,
+    email_address: chararray,
+    recipients: chararray
+);
+
+
+user_recipients = FOREACH emails GENERATE user_id, FLATTEN(TOKENIZE(recipients, '(),')) AS recipient;
+
+
+grouped_users = GROUP user_recipients BY user_id;
+user_with_recipients = FOREACH grouped_users GENERATE group AS user_id, user_recipients.recipient AS recipient;
+
+
+STORE user_with_recipients INTO 'path/to/output' USING PigStorage(',');
+
+-- Display the result
+DUMP user_with_recipients;
+
+pig -x local email_analysis.pig
+
+pig email_analysis.pig
